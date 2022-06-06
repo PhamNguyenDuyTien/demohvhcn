@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>SUMMARY</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+</head>
+<body onload="realTime()">
+    <div class="content flex">
+        <aside class="text-white">
+            <div class="header text-center">
+                <h3>Calculated</h3>
+                <span>Select your calculator</span>
+            </div>
+            <div class="main-aside">
+                <div class="row flex">
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#home" title="home"><i class="fa-solid fa-house"></i></a></li>
+                    </div>
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#frequency" title="frequency"><i class="fa-solid fa-signal"></i></a></li>
+                    </div>
+                </div>
+                <div class="row flex">
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#currency" title="currency">$</a></li>
+                    </div>
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#number" title="number">123</a></li>
+                    </div>
+                </div>
+                <div class="row flex">
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#temperature" title="temperature"><i class="fa-solid fa-temperature-full"></i></a></li>
+                    </div>
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#power" title="power"><i class="fa-solid fa-wave-square"></i></a></li>
+                    </div>
+                </div>
+                <div class="row flex">
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#time" title="time"><i class="fa-solid fa-clock"></i></a></li>
+                    </div>
+                    <div class="li">
+                        <li><a href="#" class="tab" data-tab-target="#mass" title="mass"><i class="fa-solid fa-weight-scale"></i></a></li>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    
+        <main class="main">
+            <div id="home" class="active" data-tab-content>
+                <div class="flex">
+                    <div class="col">
+                        <fieldset>
+                            <legend class="text-center"><strong>SQUARE</strong></legend>
+                            <form action="">
+                                <div class="container flex">
+                                    <div class="col">
+                                        <label for="side">Side a:</label>
+                                    </div>
+                                    <div class="col">
+                                        <input class="w-100" type="number" id="side" step="any">
+                                    </div>
+                                </div>
+                                <div class="btn">
+                                    <button style="margin-top: 30px;" type="button" onclick="areaSquare()">CALC</button>
+                                </div>
+                            </form>
+                        </fieldset>
+                        <div class="result">
+                            <h4 class="text-center">Perimeter and Area of Square</h4>
+                            <div class="peri text-center" style="margin-top: 10px;">
+                                <span id="peri-square"></span>
+                            </div>
+                            <div class="area text-center">
+                                <span id="area-square"></span>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col">
+                        <fieldset>
+                            <legend class="text-center"><strong>RECTANGLE</strong></legend>
+                            <div class="container block">
+                                <div class="w-100 flex mb-5">
+                                    <div class="col">
+                                        <label for="long-side">Long side a:</label>
+                                    </div>
+                                    <div class="col">
+                                        <input class="w-100" type="number" id="long-side" step="any">
+                                    </div>
+                                </div>
+                                <div class="w-100 flex">
+                                    <div class="col">
+                                        <label for="short-side">Short side b:</label>
+                                    </div>
+                                    <div class="col">
+                                        <input class="w-100" type="number" id="short-side" step="any">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn">
+                                <button type="button" onclick="areaRectangle()">CALC</button>
+                            </div>
+                        </fieldset>
+                        <div class="result">
+                            <h4 class="text-center">Perimeter and Area of Rectangle</h4>
+                            <div class="peri text-center" style="margin-top: 10px;">
+                                <span id="peri-rect"></span>
+                            </div>
+                            <div class="area text-center">
+                                <span id="area-rect"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="frequency" data-tab-content>
+                <form action="">
+                    <h2 class="text-center">Convert Frequency</h2>
+                    <div class="flex">
+                        <div class="col flex">
+                            <div class="col pd-10">
+                                <input class="w-100" type="number" step="any">
+                            </div>
+                            <div class="col pd-10">
+                                <select name="frequency1" id="freq1" class="w-100">
+                                    <option value="0" disabled>Frequency</option>
+                                    <option value="1">Nano Hertz (nHz)</option>
+                                    <option value="2">Micro Hertz (&#181;Hz)</option>
+                                    <option value="3">Mili Hertz (mHz)</option>
+                                    <option value="4">Hertz (Hz)</option>
+                                    <option value="5">Kilo Hertz (kHz)</option>
+                                    <option value="6">Mega Hertz (MHz)</option>
+                                    <option value="7">Giga Hertz (GHz)</option>
+                                    <option value="8">Tera Hertz (THz)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="transform">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </div>
+                        <div class="col flex">
+                            <div class="col pd-10">
+                                <input class="w-100" type="number" step="any">
+                            </div>
+                            <div class="col pd-10">
+                                <select name="frequency2" id="freq2" class="w-100">
+                                    <option value="0" disabled>Frequency</option>
+                                    <option value="1">Nano Hertz (nHz)</option>
+                                    <option value="2">Micro Hertz (&#181;Hz)</option>
+                                    <option value="3">Mili Hertz (mHz)</option>
+                                    <option value="4">Hertz (Hz)</option>
+                                    <option value="5">Kilo Hertz (kHz)</option>
+                                    <option value="6">Mega Hertz (MHz)</option>
+                                    <option value="7">Giga Hertz (GHz)</option>
+                                    <option value="8">Tera Hertz (THz)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Unit</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr>
+                            <td>Nanohertz (nHz)</td>
+                            <td>1 000 000 000</td>
+                        </tr>
+                        <tr>
+                            <td>Microhertz (µHz)</td>
+                            <td>1 000 000</td>
+                        </tr>
+                        <tr>
+                            <td>Millihertz (mHz)</td>
+                            <td>1 000</td>
+                        </tr>
+                        <tr>
+                            <td>Hertz (Hz)</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Kilohertz (kHz)</td>
+                            <td>10<sup>-3</sup></td>
+                        </tr>
+                        <tr>
+                            <td>Megahertz (MHz)</td>
+                            <td>10<sup>-6</sup></td>
+                        </tr>
+                        <tr>
+                            <td>Gigahertz (GHz)</td>
+                            <td>10<sup>-9</sup></td>
+                        </tr>
+                        <tr>
+                            <td>Terahertz (THz)</td>
+                            <td>10×10<sup>-13</sup></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="currency" data-tab-content>
+                <form action="">
+                    <h2 class="text-center">Convert Currency</h2>
+                    <div class="money flex">
+                        <div class="flex" style="margin-right: 10px;">
+                            <input type="number" step="any" class="h-40 br-10">
+                            <select name="" id="" class="h-40 br-10" style="background: #2E4369; color: #fff;">
+                                <option value="">VND</option>
+                                <option value="">USD</option>
+                                <option value="">GBP</option>
+                                <option value="">AUD</option>
+                                <option value="">CNY</option>
+                                <option value="">THB</option>
+                                <option value="">EUR</option>
+                            </select>
+                        </div>
+                        <div class="transform" style="display: flex; justify-content: center; align-items: center">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </div>
+                        <div class="flex" style="margin-left: 10px;">
+                            <input type="number" step="any" class="h-40 br-10">
+                            <select name="" id="" class="h-40 br-10" style="background: #2E4369; color: #fff;">
+                                <option value="">VND</option>
+                                <option value="">USD</option>
+                                <option value="">GBP</option>
+                                <option value="">AUD</option>
+                                <option value="">CNY</option>
+                                <option value="">THB</option>
+                                <option value="">EUR</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="chart">
+                    <canvas id="myChart" height="400px" width="950px"></canvas>
+                    <div class="w-100">
+                        <h3 class="text-center" style="color: #000;">Graph of convert EUR to GBP</h3>
+                    </div>
+                </div> 
+            </div>
+
+            <div id="number" data-tab-content>
+                <form action="">
+                    <h2 class="text-center">CALCULATOR</h2>
+                    <div class="calculate">
+                        <div class="screen br-10">
+                            <span id="display"></span>
+                            <span id="result" step="3"></span>
+                        </div>
+                        <div class="row flex">
+                            <div class="col-calc"><a class="button" type="button" href="#" title="ac">AC</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="dc">DC</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="percent">%</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="divide">/</a></div>
+                        </div>
+                        <div class="row flex">
+                            <div class="col-calc"><a class="button" id="num7" type="button" href="#" title="7">7</a></div>
+                            <div class="col-calc"><a class="button" id="num8" type="button" href="#" title="8">8</a></div>
+                            <div class="col-calc"><a class="button" id="num9" type="button" href="#" title="9">9</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="">*</a></div>
+                        </div>
+                        <div class="row flex">
+                            <div class="col-calc"><a class="button" id="num4" type="button" href="#" title="5">4</a></div>
+                            <div class="col-calc"><a class="button" id="num5" type="button" href="#" title="6">5</a></div>
+                            <div class="col-calc"><a class="button" id="num6" type="button" href="#" title="7">6</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="substract">-</a></div>
+                        </div>
+                        <div class="row flex">
+                            <div class="col-calc"><a class="button" id="num1" type="button" href="#" title="1">1</a></div>
+                            <div class="col-calc"><a class="button" id="num2" type="button" href="#" title="2">2</a></div>
+                            <div class="col-calc"><a class="button" id="num3" type="button" href="#" title="3">3</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="plus">+</a></div>
+                        </div>
+                        <div class="row flex">
+                            <div class="col-calc"><a class="button" id="num0" type="button" href="#" title="0" style="width: 110px; margin: 5px;">0</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="dot">.</a></div>
+                            <div class="col-calc"><a class="button" type="button" href="#" title="equals"> =</a></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="temperature" data-tab-content>
+                <form action="">
+                    <h2 class="text-center">Convert temperature</h2>
+                    <div class="flex">
+                        <div class="flex" style="width: 45%; padding-left: 37px;">
+                            <div class="pd-10">
+                                <input class="w-100" type="number" step="any">
+                            </div>
+                            <div class="pd-10">
+                                <select name="temperature1" id="temp1">
+                                    <option value="">&ordm;C</option>
+                                    <option value="">&ordm;F</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="transform" style="width: 10%;">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </div>
+                        <div class="flex" style="width: 45%;">
+                            <div class="pd-10">
+                                <input class="w-100" type="number" step="any">
+                            </div>
+                            <div class="pd-10">
+                                <select name="temperature2" id="temp2">
+                                    <option value="">&ordm;C</option>
+                                    <option value="">&ordm;F</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="image text-center">
+                    <img src="./assets/img/temperatureCtoF.jpg" alt="Convert C to F">
+                </div>
+            </div>
+
+            <div id="power" data-tab-content>
+                <h2 class="text-center">Convert power</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Enter your number</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Miliwatts</td>
+                            <td>
+                                <input id="miliwatts" type="number" step="any"><label for="miliwatts">&nbsp;mW</label>
+                            </td>
+                            <td>
+                                <button type="button">Convert</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Watts</td>
+                            <td>
+                                <input id="watts" type="number" step="any"><label for="watts">&nbsp;W</label>
+                            </td>
+                            <td>
+                                <button type="button">Convert</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kilpwatts</td>
+                            <td>
+                                <input id="kilowatts" type="number" step="any"><label for="kilowatts">&nbsp;kW</label>
+                            </td>
+                            <td>
+                                <button type="button">Convert</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>HorsePower (mechanic)</td>
+                            <td>
+                                <input id="hpme" type="number" step="any"><label for="hpme">&nbsp;hp(I)</label>
+                            </td>
+                            <td>
+                                <button type="button">Convert</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>HorsePower (electric)</td>
+                            <td>
+                                <input id="hpel" type="number" step="any"><label for="hpel">&nbsp;hp(E)</label>
+                            </td>
+                            <td>
+                                <button type="button">Convert</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BTU/hr</td>
+                            <td>
+                                <input id="btu-hr" type="number" step="any"><label for="btu-hr">&nbsp;BTU<sub>IT</sub>/hr</label>
+                            </td>
+                            <td>
+                                <button type="button">Convert</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="time" data-tab-content>
+                <form action="">
+                    <h2 class="text-center">Convert time</h2>
+                    <div class="flex">
+                        <div class="flex" style="width: 45%;">
+                            <div class="pd-10">
+                                <input class="w-100 text-white" type="text" disabled value="Hanoi" style="padding-left: 45px ;">
+                            </div>
+                            <div class="pd-10">
+                                <input class="w-100 text-white" type="text" value="GMT+7"  disabled style="padding-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="transform" style="width: 10%;">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </div>
+                        <div class="flex" style="width: 45%;">
+                            <div class="pd-10">
+                                <select name="city-list" id="list-time" class="w-100">
+                                    <option value="1">London - England</option>
+                                    <option value="2">Paris - France</option>
+                                    <option value="3">Cairo - Egypt</option>
+                                    <option value="4">Moscow - Russia</option>
+                                    <option value="5">Dubai - UAE</option>
+                                    <option value="6">Karachi - Pakistan</option>
+                                    <option value="7">Dhaka - Bangladesh</option>
+                                    <option value="8">Bangkok - Thailand</option>
+                                    <option value="9">Beijing - China</option>
+                                    <option value="10">Tokyo - Japan</option>
+                                    <option value="11">Sydney - Australia</option>
+                                    <option value="12">Noumea - Nouvelle-Calédonie (FRA)</option>
+                                    <option value="13">Auckland - New Zealand</option>
+                                    <option value="14">Midway Island (USA)</option>
+                                    <option value="15">Honolulu - USA</option>
+                                    <option value="16">Anchorage - Alaska (USA)</option>
+                                    <option value="17">Los Angeles - USA</option>
+                                    <option value="18">Denver - Colorado (USA)</option>
+                                    <option value="19">Chicago - USA</option>
+                                    <option value="20">New York - USA</option>
+                                    <option value="21">Santo Domingo - Dominica</option>
+                                    <option value="22">Rio de Janeiro - Brazil</option>
+                                    <option value="23">South Georgia Island (ENG)</option>
+                                    <option value="24">Azores - Azores</option>
+                                </select>
+                            </div>
+                            <div class="pd-10"> 
+                                <button type="button" style="height: 40px;">Convert</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <span id="clock"></span>
+                </div>
+                <div class="display-convert">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>London / Paris</td>
+                                <td>GMT + 1</td>
+                            </tr>
+                            <tr>
+                                <td>Moscow</td>
+                                <td>GMT + 3</td>
+                            </tr>
+                            <tr>
+                                <td>Dubai</td>
+                                <td>GMT + 4</td>
+                            </tr>
+                            <tr>
+                                <td>Beijing</td>
+                                <td>GMT + 8</td>
+                            </tr>
+                            <tr>
+                                <td>Tokyo</td>
+                                <td>GMT + 9</td>
+                            </tr>
+                            <tr>
+                                <td>New York</td>
+                                <td>GMT - 5</td>
+                            </tr>
+                            <tr>
+                                <td>Rio de Janeiro</td>
+                                <td>GMT - 3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="mass" data-tab-content>
+                <form action="">
+                    <h2 class="text-center">Convert mass</h2>
+                    <div class="text-center" style="margin-top: 50px;">
+                        <span style="font-size: 30px;">NOTHING</span>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

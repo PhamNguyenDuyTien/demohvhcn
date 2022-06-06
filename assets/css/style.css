@@ -1,0 +1,344 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: #fff;
+    padding: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../img/math.jpg);
+}
+
+h2{
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
+}
+
+
+fieldset{
+    padding: 10px;
+    margin: 0 2px;
+    height: 160px;
+}
+
+select, input{
+    height: 40px;
+    padding: 0 5px;
+    border-radius: 10px;
+}
+
+li{
+    list-style: none;
+}
+
+button{
+    background: rgb(255, 0, 0);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.dp-flex{
+    display: flex;
+}
+
+.flex{
+    display: flex;
+}
+
+.block{
+    display: block;
+}
+
+.col{
+    width: 50%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-white{
+    color: #fff;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.mb-5{
+    margin-bottom: 5px;
+}
+
+.pd-10{
+    padding: 10px;
+}
+
+.h-40{
+    height: 40px;
+}
+
+.br-10{
+    border-radius: 10px;
+}
+
+
+.content{
+    height: 500px;
+    max-width: 900px;
+    margin: 150px auto;
+    box-shadow: 1px 2px 10px 8px #fff;
+    animation: appear ease 0.5s;
+    border-radius: 10px;
+}
+
+.transform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+@keyframes appear{
+    from{
+        opacity: 0.5;
+        transform: translateY(-100px);
+    }
+    to{
+        transform: translateY(0);
+    }
+    
+}
+
+/* ====================== ASIDE ============================ */
+
+aside{
+    font-family: 'Poppins';
+    width: 20%;
+    background: #0F1722;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+aside h3{
+    margin: 70px 0 30px 0;
+}
+
+aside span{
+    font-size: 13px;
+}
+
+.main-aside{
+    margin-top: 10px;
+}
+
+.li{
+    margin: 5px auto;
+}
+
+.col-calc a,
+li a{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #151E2B;
+    border-radius: 10px;
+}
+
+a.active{
+    background: #6C63FF;
+}
+
+a:hover{
+    cursor: pointer;
+    background: #6C63FF;
+}
+
+
+/*  ======================= MAIN ======================= */
+main{
+    width: 80%;
+    padding: 16px;
+    background: #1D293A;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* ========= HOME ========== */
+
+.container{
+    margin: 10px 0;
+}
+
+.result{
+    margin: 2px 2px;
+    padding: 10px;
+    height: 100px;
+    border-radius: 5px;
+    background: #1f247a;
+    color: #fff;
+}
+
+#home input{
+    height: 25px;
+}
+
+/* ========== FREQUENCY =========== */
+table{
+    margin: 0 auto;
+}
+
+thead{
+    background: #5C6570;
+}
+td:first-child{
+    font-weight: bold;
+    font-style: italic;
+}
+
+table, th, td {
+    padding: 10px;
+}
+th, td{
+    border-bottom: 1px solid #fff;
+}
+
+/* ========== MONEY =========== */
+.money{
+    margin: 0 auto;
+    max-width: 540px;
+}
+
+.money option{
+    background: #fff;
+    color: #000;
+}
+
+.money option:hover{
+    cursor: pointer;
+    background: #2E4369;
+}
+
+.chart{
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+/* ===================== CALCULATOR ==================== */
+.calculate{
+    max-width: 240px;
+    margin: 0 auto;
+}
+
+.screen{
+    width: 240px;
+    height: 100px;
+    background: #fff;
+    margin: 16px 0;
+    position: relative;
+}
+
+.col-calc a{
+    margin: 5px;
+    background: #364357;
+    font-family: 'Poppins';
+}
+
+.col-calc:hover a{
+    background: #6C63FF;
+}
+
+#display{
+    position: absolute;
+    color: #000;
+    font-size: 25px;
+    top: 10px;
+    left: 15px;
+    font-family: 'Poppins';
+}
+
+#result{
+    position: absolute;
+    font-family: 'Poppins';
+    font-size: 25px;
+    color: #000;
+    bottom: 10px;
+    right: 15px;
+}
+
+/* ===================== TEMPERATURE ==================== */
+.image img{
+    width: 100%;
+    max-width: 550px;
+    object-fit: cover;
+}
+
+/* ===================== POWER ======================== */
+#power input{
+    width: 65%;
+}
+
+#power table{
+    overflow: scroll;
+}
+
+
+/* ===================== TIME ======================== */
+#clock{
+    margin-left: 10px;
+    display: inline;
+    width: 50px;
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+}
+
+/* ===================== ACTIVE TABS ==================== */
+
+.tab.open{
+    background: #6C63FF;
+}
+
+
+[data-tab-content]{
+    display: none;
+}
+
+.active[data-tab-content]{
+    display: block;
+    animation: modalFadeIn ease 0.5s;
+}
+
+@keyframes modalFadeIn {
+    from{
+        opacity: 0.5;
+        transform: translateY(-10px);
+        }
+
+    to{
+    transform: translateY(0);
+    }
+}
