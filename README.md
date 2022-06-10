@@ -1,1 +1,1 @@
-# Display Clock by using Javscript 
+# Display Clock by using JAVascript 
