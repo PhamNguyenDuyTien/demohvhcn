@@ -134,7 +134,7 @@ buttons.map(button =>{
 })
 
 // ========================= CLOCK ============================ //
-function realTime(){
+realTime = () => {
     var realtime = new Date();
     var hour = realtime.getHours();
     var min = realtime.getMinutes();
